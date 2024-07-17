@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTI Entidades Federativas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <style>
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="row">            
+            <div class="text-center mb-4">
+                <p class="h3">Marco institucional para el desarrollo de la ciencia, tecnología e innovación en las entidades federativas</p>            
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Mapa Distribución por Estados
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="row">
+                        <!-- Mapa -->
+                        <div class="col-md-6" id="mapSection">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="map" style="height: 650px;"></div> <!-- Contenedor del mapa -->                                   
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Cuadros de info a la derecha -->
+                        <div class="col-md-6" id="infoSection">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Representantes</h5>
+                                    <p id="Titular" class="card-text">Titular Ejecutivo del Organismo: </p>
+                                    <p id="Presidente" class="card-text">Presidente del Organismo: </p>
+                                </div>
+                            </div>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ley de Ciencia y Tecnología / Información</h5>
+                                    <ul>
+                                        <li id="leyEgresos" class="card-text">Presupuesto de Egresos: </li>
+                                        <li id="Ley_CTI" class="card-text">Ley CTI: </li>
+                                        <li id="Presupuesto_A" class="card-text">Presupuesto Asignado: </li>
+                                        <li id="Presupuesto" class="card-text">Porcentaje en Presupuesto en Tecnología: </li>
+                                        <li id="Innovacion" class="card-text">Innovacion: </li>
+                                        <li id="Acceso_Abierto" class="card-text">Acceso abierto: </li>
+                                        <li id="Vinculacion" class="card-text">Vinculacion: </li>
+                                        <li id="CTI_Genero" class="card-text">Genero: </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <!-- Contenedor para leyendas -->         
+                                <div class="row">
+                                    <div class="col">
+                                        <div id="legend" class="card">
+                                            <div class="card-body"> 
+                                                <div class="contenedor_leyendas"></div>                                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>           
+                            </div>
+                        </div>     
+                    </div>                
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Graficos por Organismo
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                     <div class="row">
+                        <!-- Canvas para la gráfica de pastel -->
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Distribución de Tipos de Organismo</h5>
+                                    <canvas id="dist_tipo_organismo_clic_graf"></canvas>                      
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-md-6">
+                          <div id="contenedor_tabla_pie" class="card mb-4">
+                              <div class="card-body"></div>                  
+                    </div>                
+                </div>
+              </div>
+            </div>
+          </div>      
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Menciones de Ley CTI Estatales
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="row">
+                <!-- Columna para las gráficas -->
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">Existencia de Ley de CTI</h5>
+                          <canvas id="dist_leycti_clic_graf"></canvas>                      
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">Mención en Ley de un Presupuesto</h5>
+                          <canvas id="dist_presupuesto_clic_graf"></canvas>                      
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">Mencion en Ley de Innovacion</h5>
+                          <canvas id="dist_innovacion_clic_graf"></canvas>                          
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">Mencion en Ley de Acceso Abierto</h5>
+                          <canvas id="dist_accesoAbierto_clic_graf"></canvas>                          
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">La Ley permite Vinculación con el sector productivo</h5>
+                          <canvas id="dist_vinculacion_clic_graf"></canvas>                          
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body d-flex flex-column align-items-center">
+                          <h5 class="card-title">La ley regula el tema de Genero</h5>
+                          <canvas id="dist_genero_clic_graf"></canvas>                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                              
+                <div class="col">
+                  
+                  <div class="sticky"> 
+
+                    <div id="contenedor_tabla_pie_2" class="sticky">                     
+                          <!-- Contenido de la tabla -->    
+                    </div>
+
+                </div>
+                </div>              
+              </div> <!-- Cierre de div.row -->              
+            </div>
+          </div>
+        </div>  
+      </div>     
+    </div>
+
+    <!-- Scripts al final del body -->
+   
+
+
+    <!-- Scripts al final del body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>    
+
+    <script src="js/script.js"></script>
+    <script src="js/convertirArchivoCsvEnObjeto.js"></script>
+    <script src="js/crearObjetoInicialMapa.js"></script>
+    <script src="js/agregarColoresYLeyendaAMapa.js"></script>
+    <script src="js/agregarMarcadoresEntidadesAMapa.js"></script>   
+    <script src="js/updateMarkerSizes.js"></script>   
+    <script src="js/contarCuantoHayDeCadaElementoEnColumna.js"></script>
+    <script src="js/crearPieCountDistinctColumnaFunction.js"></script>   
+    <script src="js/filtrarObjetosALoSql.js"></script>           
+    <script src="js/crearPiesClickeables.js"></script>  
+    <script src="js/inyectarTablaEnHtml.js"></script>    
+
+</body>
+</html>

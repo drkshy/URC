@@ -1,0 +1,97 @@
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#info {
+    height: 600px;
+    width: 25%; /* Reducir el ancho del contenedor de información */
+    float: left;
+    padding: 10px;
+    border-left: 1px solid #ccc;
+    background-color: #f8f9fa;
+    font-size: 0.9em; /* Reducir el tamaño de la fuente dentro del contenedor de información */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    background-color: #f8f9fa;
+}
+
+.h1, .h2, .h3, .h4, .h5, .card-title, .accordion-button, .accordion-button:not(.collapsed) {
+    color: brown;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-text {
+    color: #6c757d;
+    font-size: 0.9em; /* Reducir el tamaño de la fuente dentro de los textos de las tarjetas */
+}
+
+.card_pie {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+#organismTypeChart {
+    width: 90%; /* Mantener el gráfico de tamaño completo dentro del contenedor */
+    height: 90%;
+}
+
+/* Asegurarse de que el contenedor del mapa ocupe más espacio */
+#mapSection {
+    flex: 0 0 70%;
+}
+
+#infoSection {
+    flex: 0 0 30%;
+}
+
+/* Estilo para el contenedor de leyendas */
+#legend {
+    font-size: 0.9em; /* Tamaño de la fuente */
+    padding: 5px; /* Relleno */
+    border: 1px solid #ccc; /* Borde */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 5px; /* Bordes redondeados */
+    max-width: 150px; /* Ancho máximo */
+    margin: 10px; /* Margen exterior */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
+}
+
+/* Estilo para el contenedor de leyendas internas */
+#legend .contenedor_leyendas {
+    max-height: 100px; /* Altura máxima */
+    overflow-y: auto; /* Desplazamiento vertical */
+    padding: 3px; /* Relleno interno */
+    font-size: 0.75em; /* Tamaño de la fuente interna */
+}
+
+/* Estilo para los elementos individuales de la leyenda */
+#legend .contenedor_leyendas div {
+    margin-bottom: 3px; /* Margen inferior entre elementos */
+}
+
+#legend .contenedor_leyendas span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 3px; /* Margen derecho */
+    width: 12px; /* Ancho del cuadro de color */
+    height: 12px; /* Altura del cuadro de color */
+}
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
