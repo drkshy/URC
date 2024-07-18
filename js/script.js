@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
         //Creacion Mapas
         /*****************************/
 
-        var map = crearObjetoInicialMapa();
+        var mapa = crearObjetoInicialMapa();
 
-        agregarColoresYLeyendaAMapa(csvConvertidoAObjeto, map, elementoHtmlParaDepositarLeyenda);    
+        agregarColoresYLeyendaAMapa(csvConvertidoAObjeto, mapa, elementoHtmlParaDepositarLeyenda);    
 
-        agregarMarcadoresEntidadesAMapa(csvConvertidoAObjeto, map)
+        agregarMarcadoresEntidadesAMapa(csvConvertidoAObjeto, mapa)
 
 
     };   
