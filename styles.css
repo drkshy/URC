@@ -59,7 +59,7 @@ body {
     border: 1px solid #ccc; /* Borde */
     background-color: #fff; /* Fondo blanco */
     border-radius: 5px; /* Bordes redondeados */
-    max-width: 150px; /* Ancho máximo */
+    max-width: 350px; /* Ancho máximo */
     margin: 10px; /* Margen exterior */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
 }

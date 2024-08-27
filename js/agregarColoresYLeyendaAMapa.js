@@ -9,7 +9,7 @@
           // Create an object to map entities to their organism types
           var entityTypeMap = {};
           csvConvertidoAObjeto.forEach(row => {
-              entityTypeMap[row['PODER_EJECUTIVO_ENTIDAD']] = row['TIPO_ORGANISMO'];
+              entityTypeMap[row['PODER_EJECUTIVO_ENTIDAD']] = row['NATURALEZA_JURIDICA_DEL_ORGANISMO'];
           });
       
           // Load and display the GeoJSON on the map
@@ -66,11 +66,10 @@
     // Function to get color based on organism type
     function getColorParaOrganismo(tipoOrganismo) {
         var colorMapping = {
-            'Secretaría': '#8B0000',   // Red
-            'Consejo': '#BA55D3',      // Light blue
-            'Coordinación': '#007b43', // Forest green
-            'Instituto': '#808000',    // Olive
-            'Otros': '#E0FFFF'         // Golden
+            'Secretaría': '#808000',    // Olive
+            'Organismo Público Descentralizado': '#8B0000',   // Red
+            'Órgano desconcentrado': '#BA55D3',      // Light blue            
+            'No existe': '#E0FFFF'         // Golden
         };
         return colorMapping[tipoOrganismo] || '#FFFFFF'; // Default color if type not found
     }
@@ -83,7 +82,7 @@
 
     //Pero las quieres en cierto orden     
 
-    var customOrder = ["Secretaría", "Consejo", "Instituto", "Coordinación"];
+    var customOrder = ["Secretaría", "Organismo Público Descentralizado", "Órgano desconcentrado", "No existe"];
 
     var listaLeyendasOrdenada = listaLeyendas.sort(function(a, b) {
     return customOrder.indexOf(a) - customOrder.indexOf(b);

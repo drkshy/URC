@@ -33,7 +33,9 @@ var markers = [];
             <p>Gobernador: ${row['PODER_EJECUTIVO_GOBERNADOR']}</p>
             <p>Partido: ${row['PODER_EJECUTIVO_PARTIDO']}</p>
             <p>Período: ${row['PODER_EJECUTIVO_PERIODO']}</p>
-            <p>Organismo: ${row['PODER_EJECUTIVO_ORGANISMOS_ESTATALES_DE_CIENCIA_Y__TECNOLOGÍA']}</p>
+            <p>Naturaleza Jurídica: ${row['NATURALEZA_JURIDICA_DEL_ORGANISMO']}</p>
+            <p>Adscripción: ${row['DEPENDENCIA_DE_ADSCRIPCION']}</p>
+            <p>${row['PODER_EJECUTIVO_ORGANISMOS_ESTATALES_DE_CIENCIA_Y__TECNOLOGÍA']}</p>
             <img src="${partidoIconUrl}" alt="Partido Icon" style="width: 30px; height: 30px;">
             <a href="${row['URL_ESTADO']}" target="_blank">Página oficial del estado</a>
         `);
