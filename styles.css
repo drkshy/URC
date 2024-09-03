@@ -165,3 +165,37 @@ table, th, td {
     width: 90%; /* Mantener el gráfico de tamaño completo dentro del contenedor */
     height: 90%;
 }
+
+.accordion-item {
+    width: 100%; /* Asegura que todos los acordeones ocupen el ancho completo del contenedor */
+    min-height: 70px; /* Asegura que cada acordeón tenga al menos esta altura */
+    margin-bottom: 10px; /* Espacio entre los acordeones */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1200px; /* Ancho fijo */
+}
+
+.accordion-button {
+    min-height: 70px; /* Altura mínima del botón del acordeón */
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto dentro del acordeón */
+}
+.accordion-collapse {
+    min-height: 300px; /* Puedes ajustar esto según la altura mínima que quieras para los acordeones */
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px; /* Ajusta según lo necesites */
+}
+
+
+
+
