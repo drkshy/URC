@@ -29,7 +29,7 @@ function agregarMarcadoresEntidadesAMapa(csvConvertidoAObjeto, map) {
             iconUrl: entidadIconUrl,
             iconSize: normalIconSize,
             iconAnchor: [25, 54], // Ajusta las coordenadas del anclaje del ícono
-            popupAnchor: [1, -34]
+            popupAnchor: [1, -36]
         });
 
         var marker = L.marker([parseFloat(row['LATITUD_DEL_ESTADO']), parseFloat(row['LONGITUD_DEL_ESTADO'])], { icon: markerIcon });
@@ -47,7 +47,7 @@ function agregarMarcadoresEntidadesAMapa(csvConvertidoAObjeto, map) {
             <p>Naturaleza Jurídica: ${row['NATURALEZA_JURIDICA_DEL_ORGANISMO']}</p>
             <p>Adscripción: ${row['DEPENDENCIA_DE_ADSCRIPCION']}</p>
             <p>${row['PODER_EJECUTIVO_ORGANISMOS_ESTATALES_DE_CIENCIA_Y__TECNOLOGÍA']}</p>
-            <img src="${partidoIconUrl}" alt="Partido Icon" style="width: 30px; height: 30px;">
+            <img src="${partidoIconUrl}" alt="Partido Icon" style="width: 20px; height: 20px;">
             <a href="${row['URL_ESTADO']}" target="_blank">Página oficial del estado</a>
         `);
 
@@ -66,7 +66,7 @@ function agregarMarcadoresEntidadesAMapa(csvConvertidoAObjeto, map) {
             mostrarInformacionEstado(marker);
             marker.addTo(map);  // Añadir el marcador seleccionado al mapa
             marker.openPopup(); // Abre el popup manualmente al seleccionar el estado
-            map.setView(marker.getLatLng(), 5); // Centra el mapa en el marcador seleccionado
+            map.setView(marker.getLatLng(), 8); // Centra el mapa en el marcador seleccionado
         }
     });
 }

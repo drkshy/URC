@@ -11,7 +11,7 @@ body {
 
 /* Tarjetas y Contenedores */
 .card, .card_pie {
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
@@ -22,15 +22,14 @@ body {
 
 /* Ajustes adicionales */
 .card {
-    margin-bottom: 5px; /* Espacio entre las tarjetas */
-    padding: 7px; /* Añadir padding interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Mapa */
 #map {
     height: 100%;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 /* Secciones de Información */
@@ -54,7 +53,7 @@ body {
 
 #mapSection {
     flex: 0 0 70%;
-    padding-right: 15px;
+
 }
 
 /* Leyendas */
@@ -64,29 +63,30 @@ body {
     border: 1px solid #ccc; /* Borde */
     background-color: #fff; /* Fondo blanco */
     border-radius: 5px; /* Bordes redondeados */
-    max-width: 250px; /* Ancho máximo */
-    margin: 10px auto; /* Centrar y margen exterior */
+    max-width: 350px; /* Ancho máximo */
+    margin: 10px; /* Centrar y margen exterior */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
 }
 
 #legend .contenedor_leyendas {
-    max-height: 80px; /* Altura máxima */
-    padding: 2px; /* Relleno interno */
+    max-height: 100px; /* Altura máxima */
+    overflow-y: auto; /* Desplazamiento vertical */
+    padding: 3px; /* Relleno interno */
     font-size: 0.75em; /* Tamaño de la fuente interna */
     
 }
 
 /* Estilo para los elementos individuales de la leyenda */
 #legend .contenedor_leyendas div {
-    margin-bottom: 1px; /* Margen inferior entre elementos */
+    margin-bottom: 3px; /* Margen inferior entre elementos */
 }
 
 #legend .contenedor_leyendas span {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     margin-right: 3px; /* Margen derecho */
-    width: 10px; /* Ancho del cuadro de color */
-    height: 10px; /* Altura del cuadro de color */
+    width: 12px; /* Ancho del cuadro de color */
+    height: 12px; /* Altura del cuadro de color */
 }
 
 /* Tablas */
@@ -99,7 +99,7 @@ table, th, td {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 /* Selectores */
@@ -156,4 +156,9 @@ table, th, td {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 20px; /* Espacio debajo del contenedor */
+}
+
+#organismTypeChart {
+    width: 90%; /* Mantener el gráfico de tamaño completo dentro del contenedor */
+    height: 90%;
 }
