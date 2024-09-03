@@ -1,7 +1,45 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    background-color: #f8f9fa;
+}
+
+/* Títulos y Botones */
+.h1, .h2, .h3, .h4, .h5, .sidebar, .card-title, .accordion-button, .accordion-button:not(.collapsed) {
+    color: brown;
+}
+
+/* Tarjetas y Contenedores */
+.card, .card_pie {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-text {
+    color: #6c757d;
+    font-size: 0.9em; /* Reducir el tamaño de la fuente dentro de los textos de las tarjetas */
+}
+
+/* Ajustes adicionales */
+.card {
+    margin-bottom: 5px; /* Espacio entre las tarjetas */
+    padding: 7px; /* Añadir padding interno */
+}
+
+/* Mapa */
 #map {
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
+}
+
+/* Secciones de Información */
+#infoSection {
+    flex: 0 0 30%; /* Ocupa el 30% del ancho */
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #info {
@@ -14,84 +52,108 @@
     font-size: 0.9em; /* Reducir el tamaño de la fuente dentro del contenedor de información */
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-    background-color: #f8f9fa;
-}
-
-.h1, .h2, .h3, .h4, .h5, .card-title, .accordion-button, .accordion-button:not(.collapsed) {
-    color: brown;
-}
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-}
-
-.card-text {
-    color: #6c757d;
-    font-size: 0.9em; /* Reducir el tamaño de la fuente dentro de los textos de las tarjetas */
-}
-
-.card_pie {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-}
-
-#organismTypeChart {
-    width: 90%; /* Mantener el gráfico de tamaño completo dentro del contenedor */
-    height: 90%;
-}
-
-/* Asegurarse de que el contenedor del mapa ocupe más espacio */
 #mapSection {
     flex: 0 0 70%;
+    padding-right: 15px;
 }
 
-#infoSection {
-    flex: 0 0 30%;
-}
-
-/* Estilo para el contenedor de leyendas */
+/* Leyendas */
 #legend {
     font-size: 0.9em; /* Tamaño de la fuente */
     padding: 5px; /* Relleno */
     border: 1px solid #ccc; /* Borde */
     background-color: #fff; /* Fondo blanco */
     border-radius: 5px; /* Bordes redondeados */
-    max-width: 350px; /* Ancho máximo */
-    margin: 10px; /* Margen exterior */
+    max-width: 250px; /* Ancho máximo */
+    margin: 10px auto; /* Centrar y margen exterior */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente */
 }
 
-/* Estilo para el contenedor de leyendas internas */
 #legend .contenedor_leyendas {
-    max-height: 100px; /* Altura máxima */
-    overflow-y: auto; /* Desplazamiento vertical */
-    padding: 3px; /* Relleno interno */
+    max-height: 80px; /* Altura máxima */
+    padding: 2px; /* Relleno interno */
     font-size: 0.75em; /* Tamaño de la fuente interna */
+    
 }
 
 /* Estilo para los elementos individuales de la leyenda */
 #legend .contenedor_leyendas div {
-    margin-bottom: 3px; /* Margen inferior entre elementos */
+    margin-bottom: 1px; /* Margen inferior entre elementos */
 }
 
 #legend .contenedor_leyendas span {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     margin-right: 3px; /* Margen derecho */
-    width: 12px; /* Ancho del cuadro de color */
-    height: 12px; /* Altura del cuadro de color */
+    width: 10px; /* Ancho del cuadro de color */
+    height: 10px; /* Altura del cuadro de color */
 }
 
+/* Tablas */
 table, th, td {
     border: 1px solid black;
-  }
+}
 
-  .sticky {
+/* Estilo Sticky */
+.sticky {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+}
+
+/* Selectores */
+#stateSelector {
+    background-color: #f8f9fa; /* Fondo claro */
+    border: 1px solid #ced4da; /* Borde similar al de las tarjetas */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    padding: 0.375rem 0.75rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #495057; /* Color del texto */
+    width: 100%; /* Ancho completo */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Sombra ligera */
+    appearance: auto; /* Asegura que el estilo nativo del navegador se aplique */
+    -webkit-appearance: auto; /* Para navegadores WebKit */
+    -moz-appearance: auto; /* Para Firefox */
+}
+
+#sidebar h3 {
+    color: brown; /* Homologar color del título */
+}
+
+.card, #stateSelector {
+    width: 100%;
+}
+
+/* Estilo Popup */
+.leaflet-popup-content {
+    font-family: Arial, sans-serif; /* Cambiar la fuente si es necesario */
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+}
+
+.leaflet-popup-content h4 {
+    margin-top: 5; /* Ajuste del margen superior */
+    margin-bottom: 10px; /* Ajuste del margen inferior */
+    font-size: 18px; /* Tamaño de fuente */
+    color: brown; /* Color del título */
+}
+
+.leaflet-popup-content p {
+    margin: 7px 0; /* Margen entre los párrafos */
+}
+
+.leaflet-popup-content img {
+    display: block;
+    margin: 10px auto; /* Centrando la imagen en el popup */
+    max-width: 100px; /* Ajusta el tamaño máximo de la imagen */
+}
+
+/* Contenedor principal para el mapa y la información */
+#mapInfoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Espacio debajo del contenedor */
 }

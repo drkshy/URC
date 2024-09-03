@@ -7,14 +7,6 @@
     <title>CTI Entidades Federativas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
-    <style>
-        .sticky {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-    </style>
 </head>
 <body>
 
@@ -36,16 +28,27 @@
                 <div class="accordion-body">
                     <div class="row">
                         <!-- Mapa -->
-                        <div class="col-md-6" id="mapSection">
+                        <div class="col-md-8" id="mapSection">
                             <div class="card">
                                 <div class="card-body">
                                     <div id="map" style="height: 650px;"></div> <!-- Contenedor del mapa -->                                   
                                 </div>
                             </div>
                         </div>
-
+                         <div class="col-md-4" id="infoSection">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                  <div id="sidebar">
+                                    <h3>Selecciona el Estado</h3>
+                                    <select id="stateSelector" style="width: 100%;">
+                                      <option value="">Selecciona un estado</option> <!-- Opción por defecto -->
+                                    <!-- Las opciones serán agregadas dinámicamente -->
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
                          <!-- Cuadros de info a la derecha -->
-                        <div class="col-md-6" id="infoSection">
+                        
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">Representantes</h5>
@@ -53,7 +56,6 @@
                                     <p id="Presidente" class="card-text">Presidente del Organismo: </p>
                                 </div>
                             </div>
-                            <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">Ley de Ciencia y Tecnología / Información</h5>
                                     <ul>
@@ -65,6 +67,7 @@
                                         <li id="Acceso_Abierto" class="card-text">Acceso abierto: </li>
                                         <li id="Vinculacion" class="card-text">Vinculacion: </li>
                                         <li id="CTI_Genero" class="card-text">Genero: </li>
+                                        <img id="selectedStateIcon" src="" alt="">
                                     </ul>
                                 </div>
                             </div>
@@ -213,7 +216,7 @@
     <script src="js/convertirArchivoCsvEnObjeto.js"></script>
     <script src="js/CrearObjetoInicialMapa.js"></script>
     <script src="js/agregarColoresYLeyendaAMapa.js"></script>
-    <script src="js/agregarMarcadoresEntidadesAMapa.js"></script>   
+    <script src="js/agregarMarcadoresEntidadesAMapaLista.js"></script>   
     <script src="js/updateMarkerSizes.js"></script>   
     <script src="js/contarCuantoHayDeCadaElementoEnColumna.js"></script>
     <script src="js/crearPieCountDistinctColumnaFunction.js"></script>   
