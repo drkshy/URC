@@ -53,6 +53,8 @@ body {
 
 #mapSection {
     flex: 0 0 70%;
+    margin-top: 40px; /* Ajusta este valor según necesites */
+    height: 80vh; /* 80% de la altura de la ventana del navegador */
 
 }
 
@@ -155,6 +157,7 @@ table, th, td {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    
     margin-bottom: 20px; /* Espacio debajo del contenedor */
 }
 
