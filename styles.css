@@ -22,7 +22,9 @@ body {
 
 /* Ajustes adicionales */
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Bordes ligeros */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
 }
 
 /* Mapa */
@@ -119,6 +121,20 @@ table, th, td {
     -moz-appearance: auto; /* Para Firefox */
 }
 
+#stateSelector option {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+#stateSelector img {
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 20px; /* Ajusta el tamaño del ícono */
+    height: 20px;
+}
+
+
 #sidebar h3 {
     color: brown; /* Homologar color del título */
 }
@@ -166,29 +182,56 @@ table, th, td {
     height: 90%;
 }
 
+.accordion-item, .accordion-button {
+    width: 100%; /* Forzar que todos los elementos ocupen el ancho completo */
+    margin: 0 auto; /* Centrar los elementos horizontalmente */
+}
+
+
 .accordion-item {
     width: 100%; /* Asegura que todos los acordeones ocupen el ancho completo del contenedor */
     min-height: 70px; /* Asegura que cada acordeón tenga al menos esta altura */
     margin-bottom: 10px; /* Espacio entre los acordeones */
     flex-direction: column;
     justify-content: space-between;
-    width: 1200px; /* Ancho fijo */
 }
 
 .accordion-button {
+    width: 100%; /* Asegura que el botón de cada acordeón ocupe todo el ancho */
     min-height: 70px; /* Altura mínima del botón del acordeón */
     display: flex;
     align-items: center; /* Centra verticalmente el texto dentro del acordeón */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    background-color: #e7f1ff; /* Color de fondo cuando el acordeón está expandido */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
+
 .accordion-collapse {
     min-height: 300px; /* Puedes ajustar esto según la altura mínima que quieras para los acordeones */
+    transition: height 0.3s ease-in-out; /* Transición suave */
 }
+.accordion-button:not(.collapsed) {
+    background-color: #d0e3ff; /* Color cuando está activo */
+    color: #0d6efd; /* Color del texto cuando está activo */
+    font-weight: bold; /* Hacer que el texto sea más fuerte */
+    -webkit-appearance: none; /* Elimina estilos predeterminados de WebKit */
+    -moz-appearance: none; /* Elimina estilos predeterminados de Firefox */
+    appearance: none; /* Elimina estilos predeterminados del navegador */
+}
+
 
 .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+.accordion-header .accordion-button {
+    font-size: 1.25rem; /* Aumenta el tamaño de la fuente */
+    color: brown; /* Un color gris oscuro para el texto */
+}
+
 .accordion-body {
     display: flex;
     flex-direction: column;
@@ -197,5 +240,37 @@ table, th, td {
 }
 
 
+@media (max-width: 768px) {
+    .accordion-item {
+        margin-bottom: 15px; /* Más espacio en pantallas pequeñas */
+    }
 
+    .accordion-button {
+        font-size: 1rem; /* Reducir un poco el tamaño del texto en pantallas pequeñas */
+    }
+}
+
+.state-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 100%;
+    position: relative;
+    transition: max-height 0.3s ease; /* Añadir una transición suave */
+    max-height: 50px; /* Altura por defecto cuando está colapsado */
+    overflow: hidden;
+}
+
+.state-list.active {
+    max-height: 300px; /* La altura máxima cuando está desplegado */
+}
+
+.state-list .state-option {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
 

@@ -43,8 +43,7 @@
                           };
                       },
                       onEachFeature: function (feature, layer) {
-                        const entidad = feature.properties.name;
-                        const tipoOrganismo = entityTypeMap[entidad] || 'Desconocido';
+                        const entidad = feature.properties.name;                        
                         const naturalezaJuridica = csvConvertidoAObjeto.find(row => row['PODER_EJECUTIVO_ENTIDAD'] === entidad)['NATURALEZA_JURIDICA_DEL_ORGANISMO'] || 'No disponible';
                         const adscripcion = csvConvertidoAObjeto.find(row => row['PODER_EJECUTIVO_ENTIDAD'] === entidad)['DEPENDENCIA_DE_ADSCRIPCION'] || 'No disponible';
                         const organismosCienciaTecnologia = csvConvertidoAObjeto.find(row => row['PODER_EJECUTIVO_ENTIDAD'] === entidad)['PODER_EJECUTIVO_ORGANISMOS_ESTATALES_DE_CIENCIA_Y__TECNOLOGÍA'] || 'No disponible';
@@ -53,10 +52,9 @@
                     
                         layer.bindPopup(`
                             <b>${entidad}</b><br>
-                            Tipo de Organismo: ${tipoOrganismo}<br>
+                            ${organismosCienciaTecnologia}<br>
                             Naturaleza Jurídica: ${naturalezaJuridica}<br>
                             Adscripción: ${adscripcion}<br>
-                            ${organismosCienciaTecnologia}<br>
                             <img src="${entidadIconUrl}" alt="Entidad Icon" style="width: 30px; height: 30px;">
     
                         `);
