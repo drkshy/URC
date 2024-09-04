@@ -274,3 +274,47 @@ table, th, td {
     cursor: pointer;
 }
 
+.leaflet-popup-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    line-height: 1.5; /* Espaciado entre líneas para mejor legibilidad */
+}
+
+.leaflet-popup-content h4 {
+    margin-top: 0; /* Eliminar margen superior */
+    margin-bottom: 10px; /* Margen inferior */
+    font-size: 18px; /* Tamaño de fuente */
+    color: brown; /* Color del título, más llamativo */
+    font-weight: bold; /* Título en negrita */
+    border-bottom: 2px solid #ddd; /* Línea bajo el título */
+    padding-bottom: 5px; /* Espaciado debajo del título */
+}
+
+.leaflet-popup-content p {
+    margin: 5px 0; /* Margen entre los párrafos */
+    color: #666; /* Color del texto ligeramente más claro */
+}
+
+.leaflet-popup-content img {
+    display: block;
+    margin: 10px 0; /* Márgenes arriba y abajo */
+    max-width: 50px; /* Ajustar el tamaño máximo de la imagen */
+    border-radius: 50%; /* Hacer las imágenes redondeadas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Añadir una sombra suave */
+}
+
+.leaflet-popup-content .partido-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Espacio antes del contenedor */
+}
+
+.leaflet-popup-content .partido-container img {
+    margin-left: 5px; /* Margen a la izquierda del icono del partido */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+.leaflet-popup-tip {
+    background-color: brown; /* Cambiar el color de la punta del popup */
+}
